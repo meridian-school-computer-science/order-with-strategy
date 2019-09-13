@@ -6,7 +6,7 @@ class DataReader:
     def __init__(self, target_order_list):
         self.source_file = ''
         self.all_rows = []
-        self.order_list = target_order_list : AllOrders
+        self.order_list = target_order_list
 
     def read_from_csv(self):
         with open(self.source_file) as csv_file:
@@ -28,14 +28,14 @@ class DataReader:
             self.order_list.add_order(this_order)
 
 
-
 class AllOrders:
 
     def __init__(self):
         self.items = []
 
-    def add_order(self, an_order : Order):
+    def add_order(self, an_order):
         self.items.append(an_order)
+
 
 class Order:
 
@@ -44,10 +44,11 @@ class Order:
         self.build_order()
 
     def build_order(self):
+        pass
 
 
-
-d = DataReader()
+order_list= AllOrders()
+d = DataReader(order_list)
 d.source_file = 'order data.csv'
 d.read_from_csv()
 print(d)
